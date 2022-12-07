@@ -32,12 +32,14 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./public
+          source: ./
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.5.1
+      - name: Build project to prepare for deploying
+        uses: npm run predeploy
 
   # Deployment job
   deploy:
@@ -49,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: npm run deploy
