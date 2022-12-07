@@ -4,9 +4,7 @@ import './css/index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 import reportWebVitals from './reportWebVitals';
-// import bootstrap from 'bootstrap';
 import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
-//import font-awesome from node_modules
 import '/node_modules/font-awesome/css/font-awesome.min.css';
 
 
@@ -81,35 +79,43 @@ function QuoteBox() {
   var href = 'https://twitter.com/intent/tweet?text=' + quote + ' - ' + author;
 
   return (
-    <div id='wrapper'>
-      <div id='quote-box'>
+    <div className='container'>
+      <div id='wrapper' className='row'>
+        <div id='quote-box'>
 
-        <div className='quote-content'>
-          <i className='fa fa-quote-left'></i>
-          <span id='text'>{quote}</span>
+          <div id='quote-info'>
+            <div className='quote-content'>
+              <i className='fa fa-quote-left'></i>
+              <span id='text'>{quote}</span>
+
+            </div>
+
+            <div className='quote-author'>
+
+              <span id='author'>- {author}</span>
+
+            </div>
+            
+          </div>
+
+          
+
+          <div id='share' className='row'>
+            <a
+              href={href}
+              className='btn btn-secondary col-3'
+              id='tweet-quote'
+              title='Tweet this quote!'
+              target='_top'
+            ><i className="fa fa-brands fa-twitter"></i></a>
+
+
+            <button className='btn btn-secondary offset-6 col-3' id='new-quote' onClick={() => newQuote()}>
+              <i className="fa fa-sharp fa-solid fa-angle-right"></i>
+            </button>
+          </div>
 
         </div>
-
-        <div className='quote-author'>
-
-          <span id='author'>- {author}</span>
-
-        </div>
-
-        <div id='share'>
-          <a
-            href={href}
-            className='btn btn-secondary'
-            id='tweet-quote'
-            title='Tweet this quote!'
-          ><i className="fa fa-brands fa-twitter"></i></a>
-
-
-          <button className='btn btn-secondary' id='new-quote' onClick={() => newQuote()}>
-          <i className="fa fa-sharp fa-solid fa-angle-right"></i>
-          </button>
-        </div>
-
       </div>
     </div>
   )
