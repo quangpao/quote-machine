@@ -37,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
       - name: Setup Node.js environment
-        run: actions/setup-node@v3.5.1
+        uses: actions/setup-node@v3.5.1
       - name: Build project to prepare for deploying
         run: npm run predeploy
 
