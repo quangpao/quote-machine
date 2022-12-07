@@ -37,9 +37,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3.5.1
+        run: actions/setup-node@v3.5.1
       - name: Build project to prepare for deploying
-        uses: npm run predeploy
+        run: npm run predeploy
 
   # Deployment job
   deploy:
@@ -51,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: npm run deploy
+        run: npm run deploy
