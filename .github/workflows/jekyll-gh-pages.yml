@@ -29,15 +29,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.5.1
+      - name: Install Project package
+        run: npm i
       - name: Build project to prepare for deploying
         run: npm run predeploy
 
